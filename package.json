@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/sgmap/codes-postaux/issues"
   },
-  "homepage": "https://github.com/sgmap/codes-postaux"
+  "homepage": "https://github.com/sgmap/codes-postaux",
+  "main": "api",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "JSONStream": "^0.9.0",
+    "csv-parse": "0.0.6",
+    "request": "^2.48.0"
+  }
 }
