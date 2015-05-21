@@ -10,14 +10,12 @@ var sourceFile = __dirname + '/code_postaux_v201410_corr.csv';
 var destFile = __dirname + '/codes-postaux.json.gz';
 
 // Override first line
-var csvColumns = function() {
-    return ['codeInsee', 'nomCommune', 'codePostal', 'libelleAcheminement'];
-};
+var COLUMNS_NAMES = ['codeInsee', 'nomCommune', 'codePostal', 'libelleAcheminement'];
 
 // Read source file
 fs.createReadStream(sourceFile)
     // Parse CSV as Object
-    .pipe(csvParse({ delimiter: ';', trim: true, columns: csvColumns }))
+    .pipe(csvParse({ delimiter: ';', trim: true, columns: COLUMNS_NAMES }))
     // Turn into JSON Array String
     .pipe(JSONStream.stringify())
     // Deflate
