@@ -6,7 +6,7 @@ var JSONStream = require('JSONStream');
 
 var gzip = zlib.createGzip();
 
-var sourceFile = __dirname + '/code_postaux_v201410.csv';
+var sourceFile = __dirname + '/code_postaux_v201410_corr.csv';
 var destFile = __dirname + '/codes-postaux.json.gz';
 
 // Override first line
