@@ -1,14 +1,15 @@
 {
   "name": "codes-postaux",
-  "version": "0.1.0",
-  "description": "API Codes postaux France",
+  "version": "1.0.0",
+  "description": "French postal codes API for Node.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sgmap/codes-postaux.git"
   },
   "keywords": [
     "france",
-    "codes postaux"
+    "codes postaux",
+    "open data"
   ],
   "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
   "license": "MIT",
@@ -16,13 +17,15 @@
     "url": "https://github.com/sgmap/codes-postaux/issues"
   },
   "homepage": "https://github.com/sgmap/codes-postaux",
-  "main": "api",
+  "scripts": {
+    "prepublish": "node prepublish.js",
+    "postinstall": "node postinstall.js"
+  },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": ">= 2.0 <4.0"
   },
   "devDependencies": {
     "JSONStream": "^0.9.0",
-    "csv-parse": "0.0.6",
-    "request": "^2.48.0"
+    "csv-parse": "0.0.6"
   }
 }
