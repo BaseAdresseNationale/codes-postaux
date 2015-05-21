@@ -20,3 +20,10 @@ Will return
     codePostal: '75001',
     libelleAcheminement: 'PARIS' } ]
 ```
+
+
+## Architecture
+
+A source CSV file is converted to JSON and compressed on `prepublish` for faster distribution.
+On `postinstall`, it is unzipped.
+On `require`, it is indexed and loaded into memory. Finding postal codes is just an object lookup.
