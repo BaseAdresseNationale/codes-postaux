@@ -25,10 +25,10 @@
     "postinstall": "node postinstall.js"
   },
   "dependencies": {
-    "lodash": ">= 2.0 <4.0"
+    "lodash": "^4.13.1"
   },
   "devDependencies": {
-    "JSONStream": "^0.9.0",
-    "csv-parse": "^0.1.1"
+    "JSONStream": "^1.1.2",
+    "csv-parse": "^1.1.1"
   }
 }
