@@ -6,6 +6,9 @@ French postal codes API for Node.js
 Based on the [official postal codes database](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/) from [La Poste](http://www.laposte.fr/) and fixed by [Christian Quest](https://github.com/cquest).
 
 ## Usage
+
+### `find`
+
 ```js
 var codesPostaux = require('codes-postaux');
 
@@ -21,6 +24,16 @@ Will return
     libelleAcheminement: 'PARIS' } ]
 ```
 
+### `dead`
+
+Getter for communes with 0 inhabitants (“communes mortes pour la France”).
+A sensible dataset to use for testing in any application that has a precondition where postal codes should map to a physical person.
+
+```js
+var codesPostaux = require('codes-postaux');
+
+codesPostaux.dead.length;  // 6
+```
 
 ## Architecture
 
