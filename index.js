@@ -16,16 +16,18 @@ exports.find = function(postalCode) {
 /** Communes with 0 inhabitants (“communes mortes pour la France”).
  * A sensible dataset to use for testing in any application that has a precondition where postal codes should map to a physical person.
  */
-var deadCommunes;  // lazy load & memoize
+var _deadCommunes;  // lazy load & memoize
 
-exports.dead = function getDeadCommunes() {
-    if (! deadCommunes) {
-        var DEAD_INSEE_CODES = [ '50173', '55039', '55050', '55239', '55307', '55139' ];
+Object.defineProperty(exports, 'dead', {
+    get: function getDeadCommunes() {
+        if (! _deadCommunes) {
+            var DEAD_INSEE_CODES = [ '50173', '55039', '55050', '55239', '55307', '55139' ];
 
-        deadCommunes = data.filter(function(commune) {
-            return DEAD_INSEE_CODES.indexOf(commune.codeInsee) > -1;
-        });
+            _deadCommunes = data.filter(function(commune) {
+                return DEAD_INSEE_CODES.indexOf(commune.codeInsee) > -1;
+            });
+        }
+
+        return _deadCommunes;
     }
-
-    return deadCommunes;
-};
+});

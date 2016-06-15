@@ -10,11 +10,9 @@ assert.equal(actual.codeInsee, '75102');
 assert.equal(actual.libelleAcheminement, 'PARIS');
 
 
-var actual = subject.dead();
-
-assert.ok(actual instanceof Array);
-assert.equal(actual.length, 6);
-assert.ok(actual[0] instanceof Object);
-assert.ok(actual[0].codeInsee.match(/^\d{5}$/));
-assert.ok(actual[0].codePostal.match(/^\d{5}$/));
-assert.ok(actual[0].nomCommune.match(/^[A-Z ]+$/));
+assert.ok(subject.dead instanceof Array);
+assert.equal(subject.dead.length, 6);
+assert.ok(subject.dead[0] instanceof Object);
+assert.ok(subject.dead[0].codeInsee.match(/^\d{5}$/));
+assert.ok(subject.dead[0].codePostal.match(/^\d{5}$/));
+assert.ok(subject.dead[0].nomCommune.match(/^[A-Z ]+$/));
