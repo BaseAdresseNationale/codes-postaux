@@ -31,5 +31,5 @@ On `require`, it is indexed and loaded into memory. Finding postal codes is just
 ## You don't use Node.js ?
 
 Here is a list of librairies based on the same dataset.
--   [Dart](https://github.com/Kleak/code_postaux)
+-   [Dart](https://pub.dartlang.org/packages/code_postaux)
 
