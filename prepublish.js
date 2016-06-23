@@ -13,7 +13,7 @@ var destFile = __dirname + '/codes-postaux.json.gz';
 var COLUMNS_NAMES = ['codeInsee', 'nomCommune', 'codePostal', 'libelleAcheminement'];
 
 // Read source file
-fs.createReadStream(sourceFile)
+module.exports = fs.createReadStream(sourceFile)
     // Parse CSV as Object
     .pipe(csvParse({ delimiter: ';', trim: true, columns: COLUMNS_NAMES }))
     // Turn into JSON Array String

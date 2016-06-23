@@ -1,4 +1,5 @@
 prepublish.js
+test.js
 
 *.csv
 codes-postaux.json
