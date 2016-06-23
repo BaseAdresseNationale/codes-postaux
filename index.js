@@ -23,6 +23,6 @@ for (var codePostal in index) {
   });
 }
 
-exports.find = function(postalCode) {
-    return index[postalCode] || [];
+exports.find = function(codePostal) {
+    return index[codePostal] || [];
 };
