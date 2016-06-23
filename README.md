@@ -17,6 +17,7 @@ Will return
 ```js
 [ { codeInsee: '75101',
     nomCommune: 'Paris',
+    codePostal: '75001',
     population:  2229621 } ]
 ```
 
