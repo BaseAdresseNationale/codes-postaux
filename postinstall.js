@@ -3,8 +3,8 @@ var zlib = require('zlib');
 
 var gzip = zlib.createGunzip();
 
-var sourceFile = __dirname + '/codes-postaux.json.gz';
-var destFile = __dirname + '/codes-postaux.json';
+var sourceFile = __dirname + '/communes2016.json.gz';
+var destFile = __dirname + '/communes2016.json';
 
 // Just inflate json file
 fs.createReadStream(sourceFile)
