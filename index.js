@@ -21,7 +21,7 @@ var _deadCommunes;  // lazy load & memoize
 Object.defineProperty(exports, 'dead', {
     get: function getDeadCommunes() {
         if (! _deadCommunes) {
-            var DEAD_INSEE_CODES = [ '50173', '55039', '55050', '55239', '55307', '55139' ];
+            var DEAD_INSEE_CODES = [ '55039', '55050', '55239', '55307', '55139', '55189' ];
 
             _deadCommunes = data.filter(function(commune) {
                 return DEAD_INSEE_CODES.indexOf(commune.codeInsee) > -1;
