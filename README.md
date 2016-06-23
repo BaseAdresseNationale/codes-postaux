@@ -3,7 +3,7 @@ French postal codes API for Node.js
 
 > Recherche de nom de commune et code INSEE à partir d'un code postal.
 
-Based on the [official postal codes database](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/) from [La Poste](http://www.laposte.fr/) and fixed by [Christian Quest](https://github.com/cquest).
+Based on the [official postal codes database](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/) from [La Poste](http://www.laposte.fr/).
 
 ## Usage
 ```js
@@ -16,15 +16,14 @@ codesPostaux.find('75001');
 Will return
 ```js
 [ { codeInsee: '75101',
-    nomCommune: 'PARIS 01',
-    codePostal: '75001',
-    libelleAcheminement: 'PARIS' } ]
+    nomCommune: 'Paris',
+    population:  2229621 } ]
 ```
 
 
 ## Architecture
 
-A source CSV file is converted to JSON and compressed on `prepublish` for faster distribution.
+A dump from the [GéoAPI](https://api.gouv.fr/api/geoapi.html) is available in the package.
 On `postinstall`, it is unzipped.
 On `require`, it is indexed and loaded into memory. Finding postal codes is just an object lookup.
 

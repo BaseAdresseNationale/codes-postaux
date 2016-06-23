@@ -27,5 +27,4 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-codes-postaux.json
-*.gz
+communes2016.json
