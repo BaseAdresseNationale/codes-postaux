@@ -9,6 +9,7 @@ require('./communes2016.json').forEach(function (commune) {
     index[codePostal].push({
       nomCommune: commune.nom,
       codeInsee: commune.code,
+      codePostal: codePostal,
       population: commune.population || 0
     });
   });
