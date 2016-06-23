@@ -10,7 +10,7 @@ require('./communes2016.json').forEach(function (commune) {
       nomCommune: commune.nom,
       codeInsee: commune.code,
       codePostal: codePostal,
-      population: commune.population || 0
+      population: commune.population
     });
   });
 });
@@ -18,8 +18,10 @@ require('./communes2016.json').forEach(function (commune) {
 // Sort by population
 for (var codePostal in index) {
   index[codePostal].sort(function (a, b) {
-    if (a.population <= b.population) return 1;
-    if (a.population >= b.population) return -1;
+    var aPopulation = a.population || 0;
+    var bPopulation = b.population || 0;
+    if (aPopulation <= bPopulation) return 1;
+    if (aPopulation >= bPopulation) return -1;
     return 0;
   });
 }
