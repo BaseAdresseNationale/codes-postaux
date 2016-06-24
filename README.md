@@ -21,6 +21,14 @@ Will return
     libelleAcheminement: 'PARIS' } ]
 ```
 
+## GéoAPI
+
+Just want to quickly put together a small service? The hosted [GéoAPI](https://api.gouv.fr/api/geoapi) is a great way to build your service quickly!
+
+However, it won't scale if you start handling lots of traffic. This module makes it easy for you to access the same database that powers the GéoAPI, on your own premises, with no centralization.
+
+Think of the GéoAPI and this `codes-postaux` module as ways to increase the use of OpenData: they are just easier paths to an open database  :)
+
 
 ## Alternatives in other languages
 
