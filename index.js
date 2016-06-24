@@ -2,13 +2,13 @@ var data = require('./codes-postaux.json'),
     index = {};
 
 data.forEach(function (entry) {
-  if (!(entry.codePostal in index)) {
-    index[entry.codePostal] = [];
-  }
-  index[entry.codePostal].push(entry);
+    if (! (entry.codePostal in index)) {
+        index[entry.codePostal] = [];
+    }
+    index[entry.codePostal].push(entry);
 });
 
-exports.find = function(postalCode) {
+exports.find = function (postalCode) {
     return index[postalCode] || [];
 };
 
