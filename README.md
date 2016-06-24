@@ -32,7 +32,9 @@ On `require`, it is indexed and loaded into memory. Finding postal codes is just
 ## Alternatives in other languages
 
 These community-maintained libraries are based on the same dataset and offer equivalent features in other languages:
-- [Dart](https://pub.dartlang.org/packages/code_postaux)
+
+- [Dart](https://pub.dartlang.org/packages/code_postaux) by @Kleak ([source](https://github.com/Kleak/code_postaux)).
+- Missing your favourite language? [Add your implementation](https://github.com/sgmap/codes-postaux/blob/master/CONTRIBUTING.md)!
 
 
 ## Notes
