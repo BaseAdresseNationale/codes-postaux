@@ -1,8 +1,11 @@
-var _ = require('lodash');
+var index = {};
 
-var data = require('./codes-postaux.json');
-
-var index = _.groupBy(data, 'codePostal');
+require('./codes-postaux.json').forEach(function (entry) {
+  if (!(entry.codePostal in index)) {
+    index[entry.codePostal] = [];
+  }
+  index[entry.codePostal].push(entry);
+});
 
 exports.find = function(postalCode) {
     return index[postalCode] || [];

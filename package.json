@@ -25,7 +25,6 @@
     "postinstall": "node postinstall.js"
   },
   "dependencies": {
-    "lodash": "^4.13.1"
   },
   "devDependencies": {
     "JSONStream": "^1.1.2",
