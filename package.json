@@ -21,12 +21,13 @@
   "homepage": "https://github.com/sgmap/codes-postaux",
   "files": [
     "LICENSE.MIT.txt",
-    "communes2016.json.gz",
+    "communes.json.gz",
     "postinstall.js",
     "index.js"
   ],
   "scripts": {
     "test": "node test.js",
+    "prepublish": "./prepublish.sh",
     "postinstall": "node postinstall.js"
   }
 }

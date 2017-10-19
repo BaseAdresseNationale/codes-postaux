@@ -1,7 +1,7 @@
 var index = {}
 
 // Index by postalCode value
-require('./communes2016.json').forEach(function (commune) {
+require('./communes.json').forEach(function (commune) {
   commune.codesPostaux.forEach(function (codePostal) {
     if (!(codePostal in index)) {
       index[codePostal] = [];
@@ -10,7 +10,9 @@ require('./communes2016.json').forEach(function (commune) {
       nomCommune: commune.nom,
       codeInsee: commune.code,
       codePostal: codePostal,
-      population: commune.population
+      departement: commune.departement,
+      population: commune.population,
+      region: commune.region
     });
   });
 });
