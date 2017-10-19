@@ -1,7 +1,7 @@
 var index = {}
 
 // Index by postalCode value
-require('./communes2016.json').forEach(function (commune) {
+require('./communes.json').forEach(function (commune) {
   commune.codesPostaux.forEach(function (codePostal) {
     if (!(codePostal in index)) {
       index[codePostal] = [];
