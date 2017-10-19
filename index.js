@@ -10,7 +10,9 @@ require('./communes.json').forEach(function (commune) {
       nomCommune: commune.nom,
       codeInsee: commune.code,
       codePostal: codePostal,
-      population: commune.population
+      departement: commune.departement,
+      population: commune.population,
+      region: commune.region
     });
   });
 });

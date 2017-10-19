@@ -7,7 +7,9 @@ var actual;
 actual = subject.find(75002)[0];
 assert.equal(actual.nomCommune, 'Paris');
 assert.equal(actual.codeInsee, '75056');
+assert.ok('departement' in actual);
 assert.ok('population' in actual);
+assert.ok('region' in actual);
 
 // Population sort
 actual = subject.find(54490);

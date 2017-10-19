@@ -18,6 +18,14 @@ Will return
 [ { codeInsee: '75101',
     nomCommune: 'Paris',
     codePostal: '75001',
+    departement: {
+      code: "75",
+      nom: "Paris"
+    },
+    region: {
+      code: "11",
+      nom: "Île-de-France"
+    },
     population:  2229621 } ]
 ```
 
