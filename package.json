@@ -19,6 +19,10 @@
     "url": "https://github.com/sgmap/codes-postaux/issues"
   },
   "homepage": "https://github.com/sgmap/codes-postaux",
+  "files": [
+    "codes-postaux.json",
+    "index.js"
+  ],
   "scripts": {
     "prepublish": "node prepublish.js",
     "test": "node test.js"
