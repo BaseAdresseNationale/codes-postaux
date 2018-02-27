@@ -56,6 +56,5 @@ const DEAD_INSEE_CODES = [ '55039', '55050', '55239', '55307', '55139', '55189' 
 
 ### Architecture
 
-A source CSV file is converted to JSON and compressed on `prepublish` for faster distribution.
-On `postinstall`, it is unzipped.
+A source CSV file is converted to JSON on `prepublish`.
 On `require`, it is indexed and loaded into memory. Finding postal codes is just an object lookup.
