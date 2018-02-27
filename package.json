@@ -24,7 +24,7 @@
     "index.js"
   ],
   "scripts": {
-    "prepublish": "node prepublish.js",
+    "prepare": "node prepublish.js",
     "test": "node test.js"
   },
   "dependencies": {
