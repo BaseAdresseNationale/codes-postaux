@@ -39,7 +39,7 @@ Think of the GéoAPI and this `codes-postaux` module as ways to increase the use
 These community-maintained libraries are based on the same dataset and offer equivalent features in other languages:
 
 - [Dart](https://pub.dartlang.org/packages/code_postaux) by @Kleak ([source](https://github.com/Kleak/code_postaux)).
-- Missing your favourite language? [Add your implementation](https://github.com/sgmap/codes-postaux/blob/master/CONTRIBUTING.md)!
+- Missing your favourite language? [Add your implementation](https://github.com/etalab/codes-postaux/blob/master/CONTRIBUTING.md)!
 
 
 ## Notes
