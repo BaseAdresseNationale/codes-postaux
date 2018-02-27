@@ -1,13 +1,10 @@
 var fs = require('fs');
-var zlib = require('zlib');
 
 var csvParse = require('csv-parse');
 var JSONStream = require('JSONStream');
 
-var gzip = zlib.createGzip();
-
 var sourceFile = __dirname + '/code_postaux_v201410_corr.csv';
-var destFile = __dirname + '/codes-postaux.json.gz';
+var destFile = __dirname + '/codes-postaux.json';
 
 // Override first line
 var COLUMNS_NAMES = ['codeInsee', 'nomCommune', 'codePostal', 'libelleAcheminement'];
@@ -18,11 +15,9 @@ module.exports = fs.createReadStream(sourceFile)
     .pipe(csvParse({ delimiter: ';', trim: true, columns: COLUMNS_NAMES }))
     // Turn into JSON Array String
     .pipe(JSONStream.stringify())
-    // Deflate
-    .pipe(gzip)
-    // Write gzipped json file
+    // Write JSON file
     .pipe(fs.createWriteStream(destFile))
     // Finished!
     .on('finish', function () {
-        console.log('Dataset has been successfully converted and deflated');
+        console.log('Dataset has been successfully converted');
     });

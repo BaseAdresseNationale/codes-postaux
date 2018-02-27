@@ -39,7 +39,7 @@ Think of the GéoAPI and this `codes-postaux` module as ways to increase the use
 These community-maintained libraries are based on the same dataset and offer equivalent features in other languages:
 
 - [Dart](https://pub.dartlang.org/packages/code_postaux) by @Kleak ([source](https://github.com/Kleak/code_postaux)).
-- Missing your favourite language? [Add your implementation](https://github.com/sgmap/codes-postaux/blob/master/CONTRIBUTING.md)!
+- Missing your favourite language? [Add your implementation](https://github.com/etalab/codes-postaux/blob/master/CONTRIBUTING.md)!
 
 
 ## Notes
@@ -56,6 +56,5 @@ const DEAD_INSEE_CODES = [ '55039', '55050', '55239', '55307', '55139', '55189' 
 
 ### Architecture
 
-A source CSV file is converted to JSON and compressed on `prepublish` for faster distribution.
-On `postinstall`, it is unzipped.
+A source CSV file is converted to JSON on `prepublish`.
 On `require`, it is indexed and loaded into memory. Finding postal codes is just an object lookup.

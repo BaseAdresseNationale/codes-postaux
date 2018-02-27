@@ -28,4 +28,3 @@ node_modules
 .lock-wscript
 
 codes-postaux.json
-*.gz

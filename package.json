@@ -4,7 +4,7 @@
   "description": "French postal codes API for Node.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sgmap/codes-postaux.git"
+    "url": "https://github.com/etalab/codes-postaux.git"
   },
   "keywords": [
     "france",
@@ -13,16 +13,19 @@
     "postal code",
     "French"
   ],
-  "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
+  "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sgmap/codes-postaux/issues"
+    "url": "https://github.com/etalab/codes-postaux/issues"
   },
-  "homepage": "https://github.com/sgmap/codes-postaux",
+  "homepage": "https://github.com/etalab/codes-postaux",
+  "files": [
+    "codes-postaux.json",
+    "index.js"
+  ],
   "scripts": {
-    "prepublish": "node prepublish.js",
-    "test": "node test.js",
-    "postinstall": "node postinstall.js"
+    "prepare": "node prepublish.js",
+    "test": "node test.js"
   },
   "dependencies": {
   },
