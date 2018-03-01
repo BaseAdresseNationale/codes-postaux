@@ -1,10 +1,10 @@
-var assert = require('assert');
+const assert = require('assert')
 
-var subject = require('./index');
+const subject = require('.')
 
-var actual = subject.find(75002)[0];
+const [actual] = subject.find(75002)
 
-assert.equal(actual.codePostal, '75002');
-assert.equal(actual.nomCommune, 'PARIS 02');
-assert.equal(actual.codeInsee, '75102');
-assert.equal(actual.libelleAcheminement, 'PARIS');
+assert.equal(actual.codePostal, '75002')
+assert.equal(actual.nomCommune, 'PARIS 02')
+assert.equal(actual.codeInsee, '75102')
+assert.equal(actual.libelleAcheminement, 'PARIS')
