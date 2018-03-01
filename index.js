@@ -1,12 +1,12 @@
-var index = {};
+const index = {}
 
-require('./codes-postaux.json').forEach(function (entry) {
+require('./codes-postaux.json').forEach(entry => {
   if (!(entry.codePostal in index)) {
-    index[entry.codePostal] = [];
+    index[entry.codePostal] = []
   }
-  index[entry.codePostal].push(entry);
-});
+  index[entry.codePostal].push(entry)
+})
 
-exports.find = function(postalCode) {
-    return index[postalCode] || [];
-};
+exports.find = function (postalCode) {
+  return index[postalCode] || []
+}
