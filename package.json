@@ -24,13 +24,18 @@
     "index.js"
   ],
   "scripts": {
+    "lint": "xo",
     "prepare": "node prepublish.js",
     "test": "node test.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "JSONStream": "^1.1.2",
-    "csv-parse": "^1.1.1"
+    "csv-parse": "^1.1.1",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2
   }
 }
