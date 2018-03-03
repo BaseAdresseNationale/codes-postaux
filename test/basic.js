@@ -1,5 +1,5 @@
 const test = require('ava')
-const codesPostaux = require('.')
+const codesPostaux = require('..')
 
 test('75002', t => {
   const communes = codesPostaux.find(75002)
