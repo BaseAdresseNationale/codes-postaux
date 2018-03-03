@@ -41,7 +41,7 @@ async function doStuff() {
   codesPostaux.forEach(e => expandWithCommune(e, communes))
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)
-  await writeAsJSONFile(join(__dirname, '..', 'codes-postaux-compact.json'), codesPostauxCompact)
+  await writeAsJSONFile(join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
 }
 
 doStuff().catch(err => {
