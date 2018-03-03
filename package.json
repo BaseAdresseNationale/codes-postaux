@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "xo",
     "build": "node build",
-    "prepare": "node build",
+    "prepublishOnly": "node build",
     "test": "node test.js"
   },
   "dependencies": {},
