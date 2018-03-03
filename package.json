@@ -32,6 +32,9 @@
   "devDependencies": {
     "JSONStream": "^1.1.2",
     "csv-parse": "^1.1.1",
+    "decompress": "^4.2.0",
+    "lodash": "^4.17.5",
+    "superagent": "^3.8.2",
     "xo": "^0.20.3"
   },
   "xo": {
