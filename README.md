@@ -1,15 +1,28 @@
-French postal codes API for Node.js
+Codes postaux
 ------
 
-> Recherche de nom de commune et code INSEE à partir d'un code postal.
+Ce dépôt contient les scripts permettant de générer le [fichier des codes postaux](https://www.data.gouv.fr/fr/datasets/5a9ac6b9c751df4caed2b133/) ainsi qu'un module [Node.js](https://nodejs.org) permettant de l'interroger facilement.
 
-Based on the [official postal codes database](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/) from [La Poste](http://www.laposte.fr/) and fixed by [Christian Quest](https://github.com/cquest).
+## Données
 
-## Installation
+### Sources
+
+Les données de base sont produites à partir du [Code Officiel Géographique](https://www.data.gouv.fr/fr/datasets/58c984b088ee386cdb1261f3/) de l'INSEE et du  [FIMOCT](https://www.data.gouv.fr/fr/datasets/5a3cc6b588ee3858d95178fc/) de la DGFiP.
+
+### Production
+
+```bash
+npm install
+npm run build
+```
+
+## Module JavaScript
+
+### Installation
 
 `$ npm install codes-postaux --save`
 
-## Usage
+### Utilisation
 ```js
 const codesPostaux = require('codes-postaux');
 
@@ -17,44 +30,40 @@ codesPostaux.find(75001);
 codesPostaux.find('75001');
 ```
 
-Will return
+Retourne
 ```js
-[ { codeInsee: '75101',
-    nomCommune: 'PARIS 01',
+[ { codeCommune: '75101',
+    nomCommune: 'Paris 1er Arrondissement',
     codePostal: '75001',
     libelleAcheminement: 'PARIS' } ]
 ```
 
-## GéoAPI
 
-Just want to quickly put together a small service? The hosted [GéoAPI](https://api.gouv.fr/api/geoapi) is a great way to build your service quickly!
+## Communes mortes pour la France
 
-However, it won't scale if you start handling lots of traffic. This module makes it easy for you to access the same database that powers the GéoAPI, on your own premises, with no centralization.
-
-Think of the GéoAPI and this `codes-postaux` module as ways to increase the use of OpenData: they are just easier paths to an open database  :)
-
-
-## Alternatives in other languages
-
-These community-maintained libraries are based on the same dataset and offer equivalent features in other languages:
-
-- [Dart](https://pub.dartlang.org/packages/code_postaux) by @Kleak ([source](https://github.com/Kleak/code_postaux)).
-- Missing your favourite language? [Add your implementation](https://github.com/etalab/codes-postaux/blob/master/CONTRIBUTING.md)!
-
-
-## Notes
-
-### Notable subset
-
-A sensible dataset to use for testing in any application that has a precondition where postal codes should map to a physical person is the “communes mortes pour la France” (“dead communes”). All of them have a population of 0, and you could thus safely remove them from your logs.
+6 communes ont une population municipale nulle. Il s'agit des communes _mortes pour la France_.
 
 ```js
-const DEAD_INSEE_CODES = [ '55039', '55050', '55239', '55307', '55139', '55189' ];
+const COMMUNES_MORTES_POUR_LA_FRANCE = [
+  '55039',
+  '55050',
+  '55239',
+  '55307',
+  '55139',
+  '55189'
+];
 ```
 
-> An implementation with a getter is available in b23725be5908c0ab202103935c03062582067f84. It was reverted to limit the API surface to its minimum.
+## Autres bibliothèques connues
 
-### Architecture
+| Nom de la bibliothèque | Langage | Auteur |
+| --- | --- | --- |
+| [codes_postaux](https://github.com/Kleak/code_postaux) | Dart | [Kleak](https://github.com/Kleak) |
 
-A source CSV file is converted to JSON on `prepublish`.
-On `require`, it is indexed and loaded into memory. Finding postal codes is just an object lookup.
+## Et les données de La Poste ?
+
+__Pourquoi ne pas utiliser la [base officielle des codes postaux](https://www.data.gouv.fr/fr/datasets/545b55e1c751df52de9b6045/) produite par La Poste ?__
+
+Les données produites par La Poste sont diffusées sous [licence ODbL](https://fr.wikipedia.org/wiki/Open_Database_License), ce qui implique que toute base de données dérivée doit être diffusée sous cette même licence.
+
+Par ailleurs le fichier diffusé par La Poste est moins complet puisqu'il n'indique pas quelles sont les voies ou les numéros concernés par un code postal, lorsque plusieurs postaux sont associés à une même commune.

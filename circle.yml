@@ -12,5 +12,6 @@ dependencies:
 
 test:
   override:
+    - yarn build
     - yarn lint
     - yarn test
