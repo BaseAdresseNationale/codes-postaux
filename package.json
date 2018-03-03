@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "lint": "xo",
+    "build": "node build",
     "prepare": "node prepublish.js",
     "test": "node test.js"
   },
@@ -32,14 +33,23 @@
   "devDependencies": {
     "JSONStream": "^1.1.2",
     "csv-parse": "^1.1.1",
+    "csv-parser": "^1.12.0",
     "decompress": "^4.2.0",
+    "get-stream": "^3.0.0",
+    "iconv-lite": "^0.4.19",
     "lodash": "^4.17.5",
+    "pumpify": "^1.4.0",
+    "split2": "^2.2.0",
     "superagent": "^3.8.2",
+    "through2": "^2.0.3",
     "xo": "^0.20.3"
   },
   "xo": {
     "semicolon": false,
-    "space": 2
+    "space": 2,
+    "rules": {
+      "curly": "off"
+    }
   },
   "engines": {
     "node": ">= 8"
