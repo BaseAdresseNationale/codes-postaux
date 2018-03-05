@@ -19,6 +19,7 @@ function eachLine(line, enc, cb) {
   const borneInferieureRepetition = line.substr(107, 1).trim()
   const indicateurAdressage = line.substr(115, 1).trim()
 
+  if (!codePostal.match(/(\d{5})/)) return cb()
   if (codeCommune.startsWith('B')) return cb() // On ignore les codes postaux de pays étrangers
   if (codeCommune === '06900') return cb() // On ignore Monaco
   if (codeCommune === '97123') return cb() // On ignore Saint-Barthelemy
