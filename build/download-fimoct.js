@@ -34,8 +34,7 @@ async function getLatestFIMOCTArchiveURL() {
   return latestArchive.url
 }
 
-async function getLatestFIMOCTFileBuffer() {
-  const url = await getLatestFIMOCTArchiveURL()
+async function fetchAndExtractFIMOCT(url) {
   const response = await request.get(url)
     .buffer(true)
     .parse(request.parse['application/octet-stream'])
@@ -47,4 +46,14 @@ async function getLatestFIMOCTFileBuffer() {
   return candidateFile.data
 }
 
-module.exports = {getLatestFIMOCTFileBuffer}
+async function getLatestFIMOCTFileBuffer() {
+  const url = await getLatestFIMOCTArchiveURL()
+  return fetchAndExtractFIMOCT(url)
+}
+
+async function getCurrentFIMOCTFileBuffer() {
+  const url = 'https://www.data.gouv.fr/s/resources/fichiers-fimoca-et-fimoct-relatifs-aux-structures-de-la-dgfip/20171222-100050/FIMOCTT7Z00061.zip'
+  return fetchAndExtractFIMOCT(url)
+}
+
+module.exports = {getLatestFIMOCTFileBuffer, getCurrentFIMOCTFileBuffer}

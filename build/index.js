@@ -3,7 +3,7 @@ const fs = require('fs')
 const {join} = require('path')
 const {promisify} = require('util')
 const {chain, pick} = require('lodash')
-const {getLatestFIMOCTFileBuffer} = require('./download-fimoct')
+const {getCurrentFIMOCTFileBuffer} = require('./download-fimoct')
 const {extractFromFIMOCT} = require('./extract-fimoct')
 const {getIndexedCommunes} = require('./cog')
 
@@ -35,7 +35,7 @@ function buildCompact(codesPostaux) {
 }
 
 async function doStuff() {
-  const buffer = await getLatestFIMOCTFileBuffer()
+  const buffer = await getCurrentFIMOCTFileBuffer()
   const codesPostaux = await extractFromFIMOCT(buffer)
   const communes = await getIndexedCommunes()
   codesPostaux.forEach(e => expandWithCommune(e, communes))
