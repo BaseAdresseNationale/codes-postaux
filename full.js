@@ -39,7 +39,7 @@ function pariteOK(numero, codeParite) {
 }
 
 function formatResult(entry) {
-  return pick(entry, 'codePostal', 'libelleAcheminement')
+  return pick(entry, 'codePostal', 'libelleAcheminement', 'codeCommune', 'nomCommune')
 }
 
 function findCodePostal(codeCommune, codeVoie, numero, repetition) {
