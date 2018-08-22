@@ -8,10 +8,10 @@ const toArray = require('get-stream').array
 const {trimStart, trimEnd, keyBy} = require('lodash')
 const {bufferToStream} = require('./buffer-stream')
 
-const COMMUNES_2017_URL = 'https://www.insee.fr/fr/statistiques/fichier/2666684/france2017-txt.zip'
+const COMMUNES_2018_URL = 'https://www.insee.fr/fr/statistiques/fichier/3363419/France2018-txt.zip'
 
 async function getCommunesBuffer() {
-  const response = await request.get(COMMUNES_2017_URL)
+  const response = await request.get(COMMUNES_2018_URL)
     .buffer(true)
     .parse(request.parse['application/octet-stream'])
   const archiveBuffer = response.body
