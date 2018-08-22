@@ -52,7 +52,7 @@ async function getLatestFIMOCTFileBuffer() {
 }
 
 async function getCurrentFIMOCTFileBuffer() {
-  const url = 'https://www.data.gouv.fr/s/resources/fichiers-fimoca-et-fimoct-relatifs-aux-structures-de-la-dgfip/20171222-100050/FIMOCTT7Z00061.zip'
+  const url = 'https://static.data.gouv.fr/resources/fichiers-fimoca-et-fimoct-relatifs-aux-structures-de-la-dgfip/20180817-134116/FIMOCTT8Z00061.zip'
   return fetchAndExtractFIMOCT(url)
 }
 
