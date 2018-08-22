@@ -1,6 +1,6 @@
 {
   "name": "codes-postaux",
-  "version": "3.0.0-1",
+  "version": "3.0.0",
   "description": "French postal codes API for Node.js",
   "repository": {
     "type": "git",
