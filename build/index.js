@@ -2,16 +2,18 @@
 const fs = require('fs')
 const {join} = require('path')
 const {promisify} = require('util')
-const {chain, pick} = require('lodash')
+const {chain, pick, keyBy} = require('lodash')
+const communes = require('@etalab/cog/data/communes.json')
 const {getCurrentFIMOCTFileBuffer} = require('./download-fimoct')
 const {extractFromFIMOCT} = require('./extract-fimoct')
-const {getIndexedCommunes} = require('./cog')
+
+const communesIndex = keyBy(communes, 'code')
 
 const writeFile = promisify(fs.writeFile)
 
-function expandWithCommune(codePostal, indexedCommunes) {
-  if (codePostal.codeCommune in indexedCommunes) {
-    const commune = indexedCommunes[codePostal.codeCommune]
+function expandWithCommune(codePostal) {
+  if (codePostal.codeCommune in communesIndex) {
+    const commune = communesIndex[codePostal.codeCommune]
     codePostal.nomCommune = commune.nom
   } else {
     console.log('Code commune inconnu')
@@ -37,8 +39,7 @@ function buildCompact(codesPostaux) {
 async function doStuff() {
   const buffer = await getCurrentFIMOCTFileBuffer()
   const codesPostaux = await extractFromFIMOCT(buffer)
-  const communes = await getIndexedCommunes()
-  codesPostaux.forEach(e => expandWithCommune(e, communes))
+  codesPostaux.forEach(e => expandWithCommune(e))
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
