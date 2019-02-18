@@ -39,11 +39,11 @@
     "csv-parser": "^1.12.0",
     "decompress": "^4.2.0",
     "get-stream": "^3.0.0",
+    "got": "^9.6.0",
     "iconv-lite": "^0.4.19",
     "into-stream": "^4.0.0",
     "pumpify": "^1.4.0",
     "split2": "^2.2.0",
-    "superagent": "^3.8.2",
     "through2": "^2.0.3",
     "xo": "^0.20.3"
   },

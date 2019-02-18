@@ -1,4 +1,4 @@
-const request = require('superagent')
+const got = require('got')
 const decompress = require('decompress')
 const parse = require('csv-parser')
 const pumpify = require('pumpify').obj
@@ -11,9 +11,7 @@ const intoStream = require('into-stream')
 const COMMUNES_2018_URL = 'https://www.insee.fr/fr/statistiques/fichier/3363419/France2018-txt.zip'
 
 async function getCommunesBuffer() {
-  const response = await request.get(COMMUNES_2018_URL)
-    .buffer(true)
-    .parse(request.parse['application/octet-stream'])
+  const response = await got(COMMUNES_2018_URL, {encoding: null})
   const archiveBuffer = response.body
   const decompressedFiles = await decompress(archiveBuffer)
   return decompressedFiles[0].data
