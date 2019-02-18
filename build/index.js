@@ -36,7 +36,7 @@ function buildCompact(codesPostaux) {
     .value()
 }
 
-async function doStuff() {
+async function main() {
   const buffer = await getCurrentFIMOCTFileBuffer()
   const codesPostaux = await extractFromFIMOCT(buffer)
   codesPostaux.forEach(e => expandWithCommune(e))
@@ -45,7 +45,7 @@ async function doStuff() {
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
 }
 
-doStuff().catch(err => {
-  console.error(err)
+main().catch(error => {
+  console.error(error)
   process.exit(1)
 })

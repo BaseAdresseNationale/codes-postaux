@@ -18,6 +18,7 @@ function superieurBorneInf(numero, repetition, borneInferieure) {
     if (repetition && !borneInferieure.repetition) return true
     return repetition >= borneInferieure.repetition
   }
+
   if (numero > borneInferieure.numero) return true
   if (numero < borneInferieure.numero) return false
 }
@@ -29,6 +30,7 @@ function inferieurBorneSup(numero, repetition, borneSuperieure) {
     if (repetition && !borneSuperieure.repetition) return false
     return repetition <= borneSuperieure.repetition
   }
+
   if (numero > borneSuperieure.numero) return false
   if (numero < borneSuperieure.numero) return true
 }

@@ -40,6 +40,7 @@ function eachLine(line, enc, cb) {
       repetition: borneInferieureRepetition === '' ? undefined : borneInferieureRepetition
     }
   }
+
   if (borneSuperieure) {
     result.borneSuperieure = {
       numero: Number.parseInt(borneSuperieure, 10),

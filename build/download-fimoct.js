@@ -10,6 +10,7 @@ async function getDatasetResources() {
   if (!result.body && !result.body.resources) {
     throw new Error('Unexpected response')
   }
+
   return result.body.resources
 }
 
@@ -27,10 +28,12 @@ async function getLatestFIMOCTArchiveURL() {
   if (archives.length === 0) {
     throw new Error('No FIMOCT archive found')
   }
+
   const latestArchive = getMostRecent(archives)
   if (!latestArchive) {
     throw new Error('Unable to find the most recent FIMOCT archive')
   }
+
   return latestArchive.url
 }
 
@@ -41,6 +44,7 @@ async function fetchAndExtractFIMOCT(url) {
   if (!candidateFile) {
     throw new Error('Archive does not contain a FIMOCT file')
   }
+
   return candidateFile.data
 }
 
