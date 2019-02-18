@@ -6,7 +6,7 @@ const through = require('through2').obj
 const {decodeStream} = require('iconv-lite')
 const toArray = require('get-stream').array
 const {trimStart, trimEnd, keyBy} = require('lodash')
-const {bufferToStream} = require('./buffer-stream')
+const intoStream = require('into-stream')
 
 const COMMUNES_2018_URL = 'https://www.insee.fr/fr/statistiques/fichier/3363419/France2018-txt.zip'
 
@@ -37,7 +37,7 @@ async function getCommunes() {
   const communesBuffer = await getCommunesBuffer()
   return toArray(
     pumpify(
-      bufferToStream(communesBuffer),
+      intoStream(communesBuffer),
       decodeStream('win1252'),
       parse({separator: '\t', strict: true}),
       through(eachCommune)

@@ -2,7 +2,7 @@ const split = require('split2')
 const through = require('through2').obj
 const toArray = require('get-stream').array
 const {trimStart} = require('lodash')
-const {bufferToStream} = require('./buffer-stream')
+const intoStream = require('into-stream')
 
 function eachLine(line, enc, cb) {
   if (line.substr(0, 2) !== '20') return cb()
@@ -52,7 +52,7 @@ function eachLine(line, enc, cb) {
 
 function extractFromFIMOCT(buffer) {
   return toArray(
-    bufferToStream(buffer)
+    intoStream(buffer)
       .pipe(split())
       .pipe(through(eachLine))
   )
