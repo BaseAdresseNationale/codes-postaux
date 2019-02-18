@@ -33,16 +33,16 @@
   },
   "dependencies": {
     "@etalab/cog": "0.1.0",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "ava": "^1.2.1",
     "decompress": "^4.2.0",
-    "get-stream": "^3.0.0",
+    "get-stream": "^4.1.0",
     "got": "^9.6.0",
     "into-stream": "^4.0.0",
-    "split2": "^2.2.0",
-    "through2": "^2.0.3",
+    "split2": "^3.1.0",
+    "through2": "^3.0.0",
     "xo": "^0.20.3"
   },
   "xo": {
