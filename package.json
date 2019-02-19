@@ -32,10 +32,10 @@
     "test": "ava"
   },
   "dependencies": {
-    "@etalab/cog": "0.1.0",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "@etalab/cog": "0.1.0",
     "ava": "^1.2.1",
     "decompress": "^4.2.0",
     "get-stream": "^4.1.0",
