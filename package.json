@@ -36,13 +36,13 @@
   },
   "devDependencies": {
     "@etalab/cog": "0.1.0",
-    "ava": "^1.2.1",
+    "ava": "^1.4.1",
     "decompress": "^4.2.0",
-    "get-stream": "^4.1.0",
+    "get-stream": "^5.1.0",
     "got": "^9.6.0",
-    "into-stream": "^4.0.0",
-    "split2": "^3.1.0",
-    "through2": "^3.0.0",
+    "into-stream": "^5.1.0",
+    "split2": "^3.1.1",
+    "through2": "^3.0.1",
     "xo": "^0.24.0"
   },
   "xo": {
