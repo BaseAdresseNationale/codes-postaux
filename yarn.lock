@@ -380,10 +380,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@etalab/cog@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@etalab/cog/-/cog-0.1.0.tgz#a54b48600cb4714f46eaba6fc5152104e0465f4a"
-  integrity sha1-pUtIYAy0cU9G6rpvxRUhBOBGX0o=
+"@etalab/decoupage-administratif@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@etalab/decoupage-administratif/-/decoupage-administratif-0.5.0.tgz#38a2bb0cd39887724b41c6883af5aff41d5507a3"
+  integrity sha512-M8r6vNqIzTY9E2Is0QK444dVRMluDY2El9Y/qqeFPktMzagN/gkM+jWHV7cirmAd3WVS4bvo4ne3ESkkJYWfYQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

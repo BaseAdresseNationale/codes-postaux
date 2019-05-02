@@ -35,7 +35,7 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@etalab/cog": "0.1.0",
+    "@etalab/decoupage-administratif": "^0.5.0",
     "ava": "^1.4.1",
     "decompress": "^4.2.0",
     "get-stream": "^5.1.0",

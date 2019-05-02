@@ -2,25 +2,12 @@
 const fs = require('fs')
 const {join} = require('path')
 const {promisify} = require('util')
-const {chain, pick, keyBy} = require('lodash')
-const communes = require('@etalab/cog/data/communes.json')
+const {chain, pick} = require('lodash')
 const {getCurrentFIMOCTFileBuffer} = require('./download-fimoct')
 const {extractFromFIMOCT} = require('./extract-fimoct')
-
-const communesIndex = keyBy(communes, 'code')
+const {expandWithCommune} = require('./communes')
 
 const writeFile = promisify(fs.writeFile)
-
-function expandWithCommune(codePostal) {
-  if (codePostal.codeCommune in communesIndex) {
-    const commune = communesIndex[codePostal.codeCommune]
-    codePostal.nomCommune = commune.nom
-  } else {
-    console.log('Code commune inconnu')
-    console.log(codePostal)
-    process.exit(1)
-  }
-}
 
 function writeAsJSONFile(path, codesPostaux) {
   const data = codesPostaux.map(cp => JSON.stringify(cp)).join(',\n')

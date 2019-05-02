@@ -10,7 +10,7 @@ function eachLine(line, enc, cb) {
 
   const codePostal = line.substr(2, 5)
   const codeCommune = line.substr(19, 2) + line.substr(22, 3)
-  const codeVoie = line.substr(25, 4)
+  const codeVoie = line.substr(25, 4).trim()
   const codeParite = line.substr(29, 1)
   const borneSuperieure = trimStart(line.substr(30, 4).trim(), '0')
   const borneSuperieureRepetition = line.substr(34, 1).trim()
@@ -31,9 +31,11 @@ function eachLine(line, enc, cb) {
     libelleAcheminement
   }
 
+  result.codeVoie = codeVoie ? codeVoie : 'XXXX'
+
   if (indicateurAdressage) result.indicateurAdressage = indicateurAdressage
   if (codeParite !== '2') result.codeParite = codeParite
-  if (codeVoie !== '    ') result.codeVoie = codeVoie
+
   if (borneInferieure) {
     result.borneInferieure = {
       numero: Number.parseInt(borneInferieure, 10),
