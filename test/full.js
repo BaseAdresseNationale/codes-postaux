@@ -24,3 +24,7 @@ test('Saint-Maur-des-Fossés 5', t => {
 test('Mont-Bonvillers', t => {
   t.is(findCodePostal('54084').codePostal, '54111')
 })
+
+test('Commune inconnue', t => {
+  t.is(findCodePostal('54999'), undefined)
+})

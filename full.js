@@ -84,7 +84,9 @@ function findCodePostal(codeCommune, idVoie, numero, repetition) {
   }
 
   // Si on ne trouve toujours pas on essaye sur la commune parente
-  return findCodePostal(codeCommune)
+  if (idVoieMatch !== buildIdVoie(codeCommune, 'XXXX')) {
+    return findCodePostal(codeCommune)
+  }
 }
 
 module.exports = {findCodePostal}
