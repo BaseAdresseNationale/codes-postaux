@@ -1,6 +1,10 @@
 const test = require('ava')
 const {findCodePostal} = require('../full')
 
+test('Marseille 4', t => {
+  t.is(findCodePostal('13204').codePostal, '13004')
+})
+
 test('Saint-Maur-des-Fossés 1', t => {
   t.is(findCodePostal('94068', '3580', '60', 'B').codePostal, '94210')
 })
