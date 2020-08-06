@@ -32,15 +32,15 @@
     "test": "ava"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
-    "@etalab/decoupage-administratif": "^0.5.0",
-    "ava": "^1.4.1",
-    "decompress": "^4.2.0",
+    "@etalab/decoupage-administratif": "^0.8.0",
+    "ava": "^3.11.1",
+    "decompress": "^4.2.1",
     "get-stream": "^5.1.0",
     "got": "^9.6.0",
-    "into-stream": "^5.1.0",
+    "into-stream": "^5.1.1",
     "split2": "^3.1.1",
     "through2": "^3.0.1",
     "xo": "^0.24.0"
