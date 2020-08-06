@@ -37,6 +37,7 @@
   "devDependencies": {
     "@etalab/decoupage-administratif": "^0.8.0",
     "ava": "^3.11.1",
+    "csv-parser": "^2.3.3",
     "decompress": "^4.2.1",
     "get-stream": "^5.1.0",
     "got": "^11.5.1",

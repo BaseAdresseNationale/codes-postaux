@@ -3,8 +3,9 @@ const split = require('split2')
 const toArray = require('get-stream').array
 const {trimStart} = require('lodash')
 const intoStream = require('into-stream')
+const {loadIgnoreList} = require('./ignore-list')
 
-function eachLine(line, enc, cb) {
+function eachLine(line, ignoreList, cb) {
   if (line.substr(0, 2) !== '20') return cb()
   if (line.substr(12, 7) !== '9999999') return cb()
 
@@ -24,6 +25,13 @@ function eachLine(line, enc, cb) {
   if (codeCommune === '06900') return cb() // On ignore Monaco
   if (codeCommune === '97123') return cb() // On ignore Saint-Barthelemy
   if (codeCommune === '97127') return cb() // On ignore Saint-Martin
+
+  // On ignore tous les couples codeCommune/codePostal renseignés dans le fichier CSV ignore-list.csv
+  if (codeCommune in ignoreList) {
+    if (ignoreList[codeCommune].some(item => item.codePostal === codePostal)) {
+      return cb()
+    }
+  }
 
   const result = {
     codePostal,
@@ -53,13 +61,15 @@ function eachLine(line, enc, cb) {
   cb(null, result)
 }
 
-function extractFromFIMOCT(buffer) {
+async function extractFromFIMOCT(buffer) {
+  const ignoreList = await loadIgnoreList()
+
   return toArray(
     intoStream(buffer)
       .pipe(split())
       .pipe(new Transform({
         transform(line, enc, cb) {
-          eachLine(line, enc, cb)
+          eachLine(line, ignoreList, cb)
         },
         objectMode: true
       }))
