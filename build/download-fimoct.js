@@ -6,7 +6,7 @@ const DATAGOUV_API_URL = 'https://www.data.gouv.fr/api/1'
 const DATASET_ID = '5a3cc6b588ee3858d95178fc'
 
 async function getDatasetResources() {
-  const result = await got(DATAGOUV_API_URL + '/datasets/' + DATASET_ID + '/', {json: true})
+  const result = await got(DATAGOUV_API_URL + '/datasets/' + DATASET_ID + '/', {responseType: 'json'})
   if (!result.body && !result.body.resources) {
     throw new Error('Unexpected response')
   }
@@ -38,7 +38,7 @@ async function getLatestFIMOCTArchiveURL() {
 }
 
 async function fetchAndExtractFIMOCT(url) {
-  const response = await got(url, {encoding: null})
+  const response = await got(url, {responseType: 'buffer'})
   const decompressedFiles = await decompress(response.body)
   const candidateFile = decompressedFiles.find(f => f.path.startsWith('FIMOCT'))
   if (!candidateFile) {
