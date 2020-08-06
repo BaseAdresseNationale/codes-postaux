@@ -57,7 +57,7 @@ function expandWithDefault(codesPostaux) {
 async function main() {
   const buffer = await getLatestFIMOCTFileBuffer()
   const codesPostaux = expandWithDefault(await extractFromFIMOCT(buffer))
-  codesPostaux.forEach(e => expandWithCommune(e))
+  codesPostaux.forEach(item => expandWithCommune(item))
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)
   await writeAsJSONFile(join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)

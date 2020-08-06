@@ -24,7 +24,7 @@ function getMostRecent(resources) {
 
 async function getLatestFIMOCTArchiveURL() {
   const resources = await getDatasetResources()
-  const archives = resources.filter(isFIMOCTArchive)
+  const archives = resources.filter(resource => isFIMOCTArchive(resource))
   if (archives.length === 0) {
     throw new Error('No FIMOCT archive found')
   }

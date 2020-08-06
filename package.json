@@ -42,13 +42,14 @@
     "got": "^11.5.1",
     "into-stream": "^5.1.1",
     "split2": "^3.1.1",
-    "xo": "^0.24.0"
+    "xo": "^0.32.1"
   },
   "xo": {
     "semicolon": false,
     "space": 2,
     "rules": {
-      "curly": "off"
+      "curly": "off",
+      "unicorn/prefer-string-slice": "off"
     }
   },
   "engines": {

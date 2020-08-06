@@ -1,7 +1,7 @@
 const {groupBy, pick} = require('lodash')
 const codesPostaux = require('./codes-postaux-full.json')
 
-const voiesIndex = groupBy(codesPostaux, e => buildIdVoie(e.codeAncienneCommune || e.codeCommune, e.codeVoie))
+const voiesIndex = groupBy(codesPostaux, item => buildIdVoie(item.codeAncienneCommune || item.codeCommune, item.codeVoie))
 
 function buildIdVoie(codeCommune, codeVoie) {
   return `${codeCommune}-${codeVoie}`
@@ -70,10 +70,10 @@ function findCodePostal(codeCommune, idVoie, numero, repetition) {
     const entries = voiesIndex[idVoieMatch]
     if (entries.length === 1) return formatResult(entries[0])
     const parsedNumero = Number.parseInt(numero, 10)
-    const candidate = entries.find(e => {
-      return pariteOK(parsedNumero, e.codeParite) &&
-        superieurBorneInf(parsedNumero, repetition, e.borneInferieure) &&
-        inferieurBorneSup(parsedNumero, repetition, e.borneSuperieure)
+    const candidate = entries.find(entry => {
+      return pariteOK(parsedNumero, entry.codeParite) &&
+        superieurBorneInf(parsedNumero, repetition, entry.borneInferieure) &&
+        inferieurBorneSup(parsedNumero, repetition, entry.borneSuperieure)
     })
     if (candidate) return formatResult(candidate)
   }
