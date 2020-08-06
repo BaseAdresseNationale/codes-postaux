@@ -1,5 +1,5 @@
+const {Transform} = require('stream')
 const split = require('split2')
-const through = require('through2').obj
 const toArray = require('get-stream').array
 const {trimStart} = require('lodash')
 const intoStream = require('into-stream')
@@ -57,7 +57,12 @@ function extractFromFIMOCT(buffer) {
   return toArray(
     intoStream(buffer)
       .pipe(split())
-      .pipe(through(eachLine))
+      .pipe(new Transform({
+        transform(line, enc, cb) {
+          eachLine(line, enc, cb)
+        },
+        objectMode: true
+      }))
   )
 }
 
