@@ -4,6 +4,7 @@ const toArray = require('get-stream').array
 const {trimStart} = require('lodash')
 const intoStream = require('into-stream')
 const {loadIgnoreList} = require('./ignore-list')
+const {loadAddList} = require('./add-list')
 
 function eachLine(line, ignoreList, cb) {
   if (line.substr(0, 2) !== '20') return cb()
@@ -63,8 +64,9 @@ function eachLine(line, ignoreList, cb) {
 
 async function extractFromFIMOCT(buffer) {
   const ignoreList = await loadIgnoreList()
+  const addList = await loadAddList()
 
-  return toArray(
+  const rows = await toArray(
     intoStream(buffer)
       .pipe(split())
       .pipe(new Transform({
@@ -74,6 +76,8 @@ async function extractFromFIMOCT(buffer) {
         objectMode: true
       }))
   )
+
+  return [...rows, ...addList]
 }
 
 module.exports = {extractFromFIMOCT}
