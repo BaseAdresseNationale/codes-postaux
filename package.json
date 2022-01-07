@@ -2,10 +2,7 @@
   "name": "codes-postaux",
   "version": "3.4.0",
   "description": "French postal codes API for Node.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/etalab/codes-postaux.git"
-  },
+  "repository": "https://github.com/BaseAdresseNationale/codes-postaux",
   "keywords": [
     "france",
     "codes postaux",
@@ -15,10 +12,7 @@
   ],
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/etalab/codes-postaux/issues"
-  },
-  "homepage": "https://github.com/etalab/codes-postaux",
+  "homepage": "https://github.com/BaseAdresseNationale/codes-postaux",
   "files": [
     "codes-postaux.json",
     "codes-postaux-full.json",
