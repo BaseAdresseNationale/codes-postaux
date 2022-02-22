@@ -1,18 +1,10 @@
 #!/usr/bin/env node
-const fs = require('fs')
 const path = require('path')
-const {promisify} = require('util')
+const {writeJson} = require('fs-extra')
 const {chain, pick} = require('lodash')
 const {getLatestFIMOCTFileBuffer} = require('./download-fimoct')
 const {extractFromFIMOCT} = require('./extract-fimoct')
 const {expandWithCommune} = require('./communes')
-
-const writeFile = promisify(fs.writeFile)
-
-function writeAsJSONFile(path, codesPostaux) {
-  const data = codesPostaux.map(cp => JSON.stringify(cp)).join(',\n')
-  return writeFile(path, '[\n' + data + '\n]')
-}
 
 const COMPACT_KEYS = ['codePostal', 'codeCommune', 'nomCommune', 'libelleAcheminement']
 
@@ -58,9 +50,9 @@ async function main() {
   const buffer = await getLatestFIMOCTFileBuffer()
   const codesPostaux = expandWithDefault(await extractFromFIMOCT(buffer))
   for (const item of codesPostaux) expandWithCommune(item)
-  await writeAsJSONFile(path.join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
+  await writeJson(path.join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)
-  await writeAsJSONFile(path.join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
+  await writeJson(path.join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
 }
 
 main().catch(error => {

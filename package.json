@@ -33,6 +33,7 @@
     "ava": "^4.0.1",
     "csv-parser": "^3.0.0",
     "decompress": "^4.2.1",
+    "fs-extra": "^10.0.0",
     "get-stream": "^6.0.1",
     "got": "^11.8.3",
     "into-stream": "^6.0.0",
@@ -44,12 +45,14 @@
     "space": 2,
     "rules": {
       "curly": "off",
-      "comma-dangle": ["error", "never"],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
       "unicorn/prefer-module": "off",
       "unicorn/prefer-string-slice": "off",
       "import/extensions": "off",
       "node/prefer-global/process": "off"
-
     }
   },
   "engines": {
