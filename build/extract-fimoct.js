@@ -21,17 +21,15 @@ function eachLine(line, ignoreList, cb) {
   const borneInferieureRepetition = line.substr(107, 1).trim()
   const indicateurAdressage = line.substr(115, 1).trim()
 
-  if (!codePostal.match(/(\d{5})/)) return cb()
+  if (!/(\d{5})/.test(codePostal)) return cb()
   if (codeCommune.startsWith('B')) return cb() // On ignore les codes postaux de pays étrangers
   if (codeCommune === '06900') return cb() // On ignore Monaco
   if (codeCommune === '97123') return cb() // On ignore Saint-Barthelemy
   if (codeCommune === '97127') return cb() // On ignore Saint-Martin
 
   // On ignore tous les couples codeCommune/codePostal renseignés dans le fichier CSV ignore-list.csv
-  if (codeCommune in ignoreList) {
-    if (ignoreList[codeCommune].some(item => item.codePostal === codePostal)) {
-      return cb()
-    }
+  if (codeCommune in ignoreList && ignoreList[codeCommune].some(item => item.codePostal === codePostal)) {
+    return cb()
   }
 
   const result = {

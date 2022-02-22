@@ -6,7 +6,7 @@ const arrondissementsMunicipaux = require('@etalab/decoupage-administratif/data/
 
 function connectGraph(historiqueCommunes) {
   const byId = keyBy(historiqueCommunes, 'id')
-  historiqueCommunes.forEach(h => {
+  for (const h of historiqueCommunes) {
     if (h.successeur) {
       h.successeur = byId[h.successeur]
     }
@@ -22,7 +22,7 @@ function connectGraph(historiqueCommunes) {
     if (h.membres) {
       h.membres = h.membres.map(m => byId[m])
     }
-  })
+  }
 }
 
 connectGraph(historiqueCommunes)

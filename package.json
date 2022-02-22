@@ -47,7 +47,8 @@
       "comma-dangle": ["error", "never"],
       "unicorn/prefer-module": "off",
       "unicorn/prefer-string-slice": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "node/prefer-global/process": "off"
 
     }
   },

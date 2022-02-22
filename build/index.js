@@ -1,6 +1,6 @@
-/* eslint unicorn/no-process-exit: off */
+#!/usr/bin/env node
 const fs = require('fs')
-const {join} = require('path')
+const path = require('path')
 const {promisify} = require('util')
 const {chain, pick} = require('lodash')
 const {getLatestFIMOCTFileBuffer} = require('./download-fimoct')
@@ -57,10 +57,10 @@ function expandWithDefault(codesPostaux) {
 async function main() {
   const buffer = await getLatestFIMOCTFileBuffer()
   const codesPostaux = expandWithDefault(await extractFromFIMOCT(buffer))
-  codesPostaux.forEach(item => expandWithCommune(item))
-  await writeAsJSONFile(join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
+  for (const item of codesPostaux) expandWithCommune(item)
+  await writeAsJSONFile(path.join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)
-  await writeAsJSONFile(join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
+  await writeAsJSONFile(path.join(__dirname, '..', 'codes-postaux.json'), codesPostauxCompact)
 }
 
 main().catch(error => {

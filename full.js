@@ -70,11 +70,9 @@ function findCodePostal(codeCommune, idVoie, numero, repetition) {
     const entries = voiesIndex[idVoieMatch]
     if (entries.length === 1) return formatResult(entries[0])
     const parsedNumero = Number.parseInt(numero, 10)
-    const candidate = entries.find(entry => {
-      return pariteOK(parsedNumero, entry.codeParite) &&
-        superieurBorneInf(parsedNumero, repetition, entry.borneInferieure) &&
-        inferieurBorneSup(parsedNumero, repetition, entry.borneSuperieure)
-    })
+    const candidate = entries.find(entry => pariteOK(parsedNumero, entry.codeParite)
+        && superieurBorneInf(parsedNumero, repetition, entry.borneInferieure)
+        && inferieurBorneSup(parsedNumero, repetition, entry.borneSuperieure))
     if (candidate) return formatResult(candidate)
   }
 
