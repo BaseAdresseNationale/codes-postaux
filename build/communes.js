@@ -1,56 +1,26 @@
-const {groupBy, keyBy, maxBy} = require('lodash')
-const historiqueCommunes = require('@etalab/decoupage-administratif/data/historique-communes.json')
-const arrondissementsMunicipaux = require('@etalab/decoupage-administratif/data/communes.json')
-  .filter(c => c.type === 'arrondissement-municipal')
-  .map(c => ({code: c.code, nom: c.nom, type: 'COM'}))
+const {keyBy} = require('lodash')
 
-function connectGraph(historiqueCommunes) {
-  const byId = keyBy(historiqueCommunes, 'id')
-  for (const h of historiqueCommunes) {
-    if (h.successeur) {
-      h.successeur = byId[h.successeur]
-    }
+const communes = require('@etalab/decoupage-administratif/data/communes.json')
+  .filter(c => ['commune-actuelle', 'arrondissement-municipal'].includes(c.type))
 
-    if (h.predecesseur) {
-      h.predecesseur = byId[h.predecesseur]
-    }
+const communesIndex = keyBy(communes, 'code')
 
-    if (h.pole) {
-      h.pole = byId[h.pole]
-    }
+const anciensCodesIndex = new Map()
 
-    if (h.membres) {
-      h.membres = h.membres.map(m => byId[m])
+for (const commune of communes) {
+  if (commune.anciensCodes) {
+    for (const ancienCode of commune.anciensCodes) {
+      anciensCodesIndex.set(ancienCode, commune)
     }
   }
 }
 
-connectGraph(historiqueCommunes)
-
-const byCodeCommune = groupBy(historiqueCommunes.concat(arrondissementsMunicipaux), h => `${h.type}${h.code}`)
-
-function getCommuneActuelle(communeEntry) {
-  if (typeof communeEntry === 'string') {
-    const candidates = byCodeCommune[`COM${communeEntry}`]
-
-    if (candidates) {
-      return getCommuneActuelle(maxBy(candidates, c => c.dateFin || '9999-99-99'))
-    }
-
-    return
+function getCommuneActuelle(codeCommune) {
+  if (codeCommune in communesIndex) {
+    return communesIndex[codeCommune]
   }
 
-  if (!communeEntry.dateFin && communeEntry.type === 'COM') {
-    return communeEntry
-  }
-
-  if (!communeEntry.dateFin) {
-    return getCommuneActuelle(communeEntry.pole)
-  }
-
-  if (communeEntry.successeur) {
-    return getCommuneActuelle(communeEntry.successeur)
-  }
+  return anciensCodesIndex.get(codeCommune)
 }
 
 function expandWithCommune(codePostal) {

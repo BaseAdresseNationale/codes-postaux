@@ -29,7 +29,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@etalab/decoupage-administratif": "^0.8.0",
+    "@etalab/decoupage-administratif": "^2.0.0",
     "ava": "^4.0.1",
     "csv-parser": "^3.0.0",
     "decompress": "^4.2.1",
