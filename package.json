@@ -37,14 +37,18 @@
     "got": "^11.8.3",
     "into-stream": "^6.0.0",
     "split2": "^4.1.0",
-    "xo": "^0.32.1"
+    "xo": "^0.48.0"
   },
   "xo": {
     "semicolon": false,
     "space": 2,
     "rules": {
       "curly": "off",
-      "unicorn/prefer-string-slice": "off"
+      "comma-dangle": ["error", "never"],
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-string-slice": "off",
+      "import/extensions": "off"
+
     }
   },
   "engines": {
