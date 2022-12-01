@@ -30,15 +30,15 @@
   },
   "devDependencies": {
     "@etalab/decoupage-administratif": "^2.2.1",
-    "ava": "^4.0.1",
+    "ava": "^5.1.0",
     "csv-parser": "^3.0.0",
     "decompress": "^4.2.1",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^11.1.0",
     "get-stream": "^6.0.1",
-    "got": "^11.8.3",
+    "got": "^11.8.5",
     "into-stream": "^6.0.0",
     "split2": "^4.1.0",
-    "xo": "^0.48.0"
+    "xo": "^0.53.1"
   },
   "xo": {
     "semicolon": false,
