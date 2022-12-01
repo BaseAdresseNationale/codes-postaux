@@ -1,4 +1,4 @@
-const {createReadStream} = require('fs')
+const {createReadStream} = require('node:fs')
 const getStream = require('get-stream')
 const csvParse = require('csv-parser')
 

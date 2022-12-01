@@ -1,4 +1,4 @@
-const {Transform} = require('stream')
+const {Transform} = require('node:stream')
 const split = require('split2')
 const toArray = require('get-stream').array
 const {trimStart} = require('lodash')
@@ -38,7 +38,7 @@ function eachLine(line, ignoreList, cb) {
     libelleAcheminement
   }
 
-  result.codeVoie = codeVoie ? codeVoie : 'XXXX'
+  result.codeVoie = codeVoie || 'XXXX'
 
   if (indicateurAdressage) result.indicateurAdressage = indicateurAdressage
   if (codeParite !== '2') result.codeParite = codeParite

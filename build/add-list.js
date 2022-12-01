@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('node:path')
 const {pick} = require('lodash')
 const readCsv = require('./read-csv')
 

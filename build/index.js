@@ -1,7 +1,10 @@
 #!/usr/bin/env node
-const path = require('path')
+const path = require('node:path')
+const process = require('node:process')
+
 const {writeJson} = require('fs-extra')
 const {chain, pick} = require('lodash')
+
 const {getLatestFIMOCTFileBuffer} = require('./download-fimoct')
 const {extractFromFIMOCT} = require('./extract-fimoct')
 const {expandWithCommune} = require('./communes')
