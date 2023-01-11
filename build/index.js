@@ -5,8 +5,8 @@ const process = require('node:process')
 const {writeJson} = require('fs-extra')
 const {chain, pick} = require('lodash')
 
-const {getLatestFIMOCTFileBuffer} = require('./download-fimoct')
-const {extractFromFIMOCT} = require('./extract-fimoct')
+const {getLatestSourceFileBuffer} = require('./download-source-file')
+const {formatSourceFileContent} = require('./format-source-file-content')
 const {expandWithCommune} = require('./communes')
 
 const COMPACT_KEYS = ['codePostal', 'codeCommune', 'nomCommune', 'libelleAcheminement']
@@ -50,8 +50,8 @@ function expandWithDefault(codesPostaux) {
 }
 
 async function main() {
-  const buffer = await getLatestFIMOCTFileBuffer()
-  const codesPostaux = expandWithDefault(await extractFromFIMOCT(buffer))
+  const buffer = await getLatestSourceFileBuffer()
+  const codesPostaux = expandWithDefault(await formatSourceFileContent(buffer))
   for (const item of codesPostaux) expandWithCommune(item)
   await writeJson(path.join(__dirname, '..', 'codes-postaux-full.json'), codesPostaux)
   const codesPostauxCompact = buildCompact(codesPostaux)

@@ -1,0 +1,19 @@
+                                       ACHEMINEMENT        201812120000000019                                              
+01001    99999999           2018091001400L ABERGEMENT CLEMENCIAT               L ABERGEMENT CLEMENCIAT                P    
+01002    99999999           2017010101640L ABERGEMENT DE VAREY                 L ABERGEMENT DE VAREY                  P    
+01004    99999999           2017010101500AMBERIEU EN BUGEY                     AMBERIEU EN BUGEY                      P    
+01005    99999999           2017010101330AMBERIEUX EN DOMBES                   AMBERIEUX EN DOMBES                    P    
+01006    99999999           2017010101300AMBLEON                               AMBLEON                                P    
+01007    99999999           2017010101500AMBRONAY                              AMBRONAY                               P    
+01008    99999999           2017010101500AMBUTRIX                              AMBUTRIX                               P    
+01009    99999999           2018091001300ANDERT ET CONDON                      ANDERT ET CONDON                       P    
+01010    99999999           2017010101350ANGLEFORT                             ANGLEFORT                              P    
+01011    99999999           2017010101100APREMONT                              APREMONT                               P    
+01012    99999999           2017010101110ARANC                                 ARANC                                  P    
+13001109999999999           2018083113290LES MILLES                            AIX EN PROVENCE                        T    
+13001110799999999           2018083113090AIX EN PROVENCE                 *AIX  EN PROVENCE                           *P    
+13001110899999999           2018083113080LUYNES                                AIX EN PROVENCE                        T    
+130011114999999990047890002 2018083113090AIX EN PROVENCE                 *AIX  EN PROVENCE                           *P    
+130011114999999990999890480 2018083113080LUYNES                                AIX EN PROVENCE                        T    
+130011114999999991036390001 2018083113090AIX EN PROVENCE                 *AIX  EN PROVENCE                           *P    
+130011114999999991999990365 2018083113080LUYNES                                AIX EN PROVENCE                        T    
