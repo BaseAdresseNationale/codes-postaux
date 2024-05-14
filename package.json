@@ -1,6 +1,6 @@
 {
   "name": "codes-postaux",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "French postal codes API for Node.js",
   "repository": "https://github.com/BaseAdresseNationale/codes-postaux",
   "keywords": [
@@ -29,7 +29,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@etalab/decoupage-administratif": "3.0.0",
+    "@etalab/decoupage-administratif": "4.0.0",
     "ava": "^5.1.0",
     "csv-parser": "^3.0.0",
     "decompress": "^4.2.1",
