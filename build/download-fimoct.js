@@ -19,7 +19,7 @@ function isFIMOCTArchive(resource) {
 }
 
 function getMostRecent(resources) {
-  return last(sortBy(resources, resource => new Date(resource.published)))
+  return last(sortBy(resources, resource => new Date(resource.last_modified)))
 }
 
 async function getLatestFIMOCTArchiveURL() {
