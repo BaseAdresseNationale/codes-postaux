@@ -19,7 +19,7 @@ function isFIMOCTArchive(resource) {
 }
 
 function getMostRecent(resources) {
-  return last(sortBy(resources, resource => new Date(resource.published)))
+  return last(sortBy(resources, resource => new Date(resource.last_modified)))
 }
 
 async function getLatestFIMOCTArchiveURL() {
@@ -54,7 +54,7 @@ async function getLatestFIMOCTFileBuffer() {
 }
 
 async function getCurrentFIMOCTFileBuffer() {
-  const url = 'https://static.data.gouv.fr/resources/fichiers-fimoca-et-fimoct-relatifs-aux-structures-de-la-dgfip/20180817-134116/FIMOCTT8Z00061.zip'
+  const url = 'https://static.data.gouv.fr/resources/objet-disparition-des-fichiers-fantoir-fimoca-et-fimoct-en-fevrier-2023-mise-en-place-des-fichiers-topo-structures-uamissions-competences-et-acheminement/20230201-110343/fimoctt2z00121.zip'
   return fetchAndExtractFIMOCT(url)
 }
 
