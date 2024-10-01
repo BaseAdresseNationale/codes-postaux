@@ -3,5 +3,7 @@ Suzan,09304,09240,SUZAN,commune manquante dans le FIMOCT
 Paris 16e Arrondissement,75116,75116,PARIS 16,arrondissement avec code postal manquant dans le FIMOCT
 Saint-Pierre,97502,97500,SAINT PIERRE,commune absente du FIMOCT
 Miquelon-Langlade,97501,97500,MIQUELON LANGLADE,commune absente du FIMOCT
-Sainte-Florence,85212,85140,STE FLORENCE,commune absente du FIMOCT
-L'Oie,85165,85140,L OIE,commune absente du FIMOCT
+Sainte-Florence,85212,85140,STE FLORENCE,commune absente du FIMOCT 2023 (defusion 2024/01)
+L'Oie,85165,85140,L OIE,commune absente du FIMOCT 2023 (defusion 2024/01)
+Les Hauts-Talican,60694,60390,LES HAUTS TALICAN,commune absente du FIMOCT 2023 (defusion 2024/01)
+Beaumont-les-Nonains,60054,60390,BEAUMONT LES NONAINS,correction libelle acheminement (defusion avce haut-talican)
