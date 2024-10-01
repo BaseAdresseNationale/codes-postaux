@@ -9,8 +9,8 @@ Ce dépôt contient les scripts permettant de générer le [fichier des codes po
 
 Les données de base sont produites à partir du [Code Officiel Géographique](https://www.data.gouv.fr/fr/datasets/58c984b088ee386cdb1261f3/) de l'INSEE et du  [FIMOCT](https://www.data.gouv.fr/fr/datasets/5a3cc6b588ee3858d95178fc/) de la DGFiP.
 
-[!WARNING]
-Les fichiers FIMOCT ne sont plus générés depuis 2023.
+> [!WARNING]
+> Les fichiers FIMOCT ne sont plus générés depuis 2023.
 
 ### Production
 
